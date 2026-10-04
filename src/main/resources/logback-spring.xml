@@ -1,0 +1,13 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="CONSOLE_LOG_PATTERN"
+              value="{&quot;timestamp&quot;:&quot;%date{ISO8601}&quot;,&quot;level&quot;:&quot;%level&quot;,&quot;logger&quot;:&quot;%logger{36}&quot;,&quot;request_id&quot;:&quot;%X{requestId:-}&quot;,&quot;user_id&quot;:&quot;%X{userId:-}&quot;,&quot;message&quot;:&quot;%replace(%msg){'&quot;','\\&quot;'}&quot;}%n"/>
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+</configuration>

@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: seat-reservation-service
+    runtime: docker
+    plan: free
+    healthCheckPath: /actuator/health/readiness
+    envVars:
+      - key: DB_CONNECTION_STRING
+        fromDatabase:
+          name: seat-reservation-service-db
+          property: connectionString
+      - key: ADMIN_TOKEN
+        sync: false
+      - key: DEFAULT_PER_USER_LIMIT
+        value: "4"
+      - key: DB_POOL_SIZE
+        value: "10"
+
+databases:
+  - name: seat-reservation-service-db
+    plan: free
+    postgresMajorVersion: "17"
+    databaseName: seat_reservation
+    user: seat_reservation
