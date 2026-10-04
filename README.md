@@ -1,6 +1,6 @@
 # Seat Reservation Service
 
-Backend take-home exercise for Paytm Money — Deploy & Observe round.
+A scalable, concurrency-safe seat reservation backend built with Java 21, Spring Boot, and PostgreSQL, featuring atomic bookings, idempotency, and real-time observability
 
 ## Assignment fit
 
